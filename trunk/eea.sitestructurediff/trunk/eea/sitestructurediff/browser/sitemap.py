@@ -1,5 +1,6 @@
 from zope.component import getMultiAdapter
 from zope.interface import implements
+from zope.event import notify
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -7,14 +8,15 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.browser.navtree import buildFolderTree, SitemapNavtreeStrategy
 from Products.CMFPlone.browser.interfaces import INavtreeStrategy
 from Products.CMFPlone.browser.interfaces import ISiteMap
+from lovely.memcached.event import InvalidateCacheEvent
 from plone.memoize.ram import cache
 
 def cacheKey(method, self, st=0):
     request = self.request
     path = request.get('path', '0')
-    if path == 0:
-        path = '%s' % self.context.absolute_url(1)
-    return (path, st)
+    if path == '0':
+        path = '/%s' % self.context.absolute_url(1)
+    return (['eea.sitestructurediff'], path, st)
 
 class SitemapView(BrowserView):
     implements(ISiteMap)
@@ -22,7 +24,8 @@ class SitemapView(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-
+        notify(InvalidateCacheEvent(raw=True, dependencies=['eea.sitestructurediff']))
+        
     @cache(cacheKey)
     def data(self, st=0):
         context = self.context

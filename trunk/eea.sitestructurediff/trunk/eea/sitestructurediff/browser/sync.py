@@ -34,12 +34,15 @@ class SyncDiff(BrowserView):
                 translation.reindexObject()
         synccontext.reindexObject()
 
-        key = md5.new("eea.sitestructurediff.browser.sitemap.data:('%s', '%s')" % (context.absolute_url(1), 0)).hexdigest()
-        notify(InvalidateCacheEvent(key=key, raw=True))
-        key = md5.new("eea.sitestructurediff.browser.sitemap.data:('%s', '%s')" % (context.absolute_url(1), 1)).hexdigest()
-        notify(InvalidateCacheEvent(key=key, raw=True))
-        key = md5.new("eea.sitestructurediff.browser.sitemap.data:('/', 0)").hexdigest()
-        notify(InvalidateCacheEvent(key=key, raw=True))
-        key = md5.new("eea.sitestructurediff.browser.sitemap.data:('/', 1)").hexdigest()
-        notify(InvalidateCacheEvent(key=key, raw=True))
-        
+        currentPath = path
+        path = path.split('/')
+        p = 0
+        while p < len(path):
+            keystring = "eea.sitestructurediff.browser.sitemap.data:(['eea.sitestructurediff'], '%s', %s)"
+            key = md5.new(keystring  % (currentPath, 0)).hexdigest()
+            notify(InvalidateCacheEvent(key=key, raw=True))
+            key = md5.new(keystring % (currentPath, 1)).hexdigest()
+            notify(InvalidateCacheEvent(key=key, raw=True))
+            currentPath = '/'.join(path[:-p])
+            p += 1
+            
