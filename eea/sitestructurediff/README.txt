@@ -32,6 +32,7 @@ This
 
 In a subpath we weant to see only the folders that are missing a language
 
+  >>> view = SitemapView(self.portal.folder, self.portal.REQUEST)
   >>> view.request['path'] = '/plone/folder/Folder2'
   >>> [ id for id, diff in getT(view.statusdata()) if diff.startswith('missing')]
   ['plone-folder-Folder2-Folder2-1', 'plone-folder-Folder2-Folder1-1']
@@ -49,7 +50,10 @@ invalidate the default ram cache.
   >>> from plone.memoize.ram import global_cache
   >>> @adapter(IInvalidateCacheEvent)
   ... def invalidateCache(event):
+  ...    try:
   ...     global_cache.invalidateAll()
+  ...    except:
+  ...     pass
   >>> provideHandler(invalidateCache)
 
 Lets create the sync view and fix some diffs
