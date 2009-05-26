@@ -1,20 +1,6 @@
 
 Js tree for plone
 
-  >>> from Products.EEAContentTypes import cache
-
-This 
-  >>> from pprint import pprint
-
-  >>> from Products.Five.testbrowser import Browser
-  >>> browser = Browser()
-  >>> browser.handleErrors = False
-  >>> self.portal.error_log._ignored_exceptions = ()
-
-  >>> purl = self.portal.absolute_url()
-  >>> browser.addHeader('Content-Type', 'application/json')
-
-
   >>> from eea.sitestructurediff.browser.sitemap import SitemapView
   >>> view = SitemapView(self.portal.folder, self.portal.REQUEST)
 

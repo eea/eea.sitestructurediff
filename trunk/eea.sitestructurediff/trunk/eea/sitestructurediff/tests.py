@@ -13,8 +13,7 @@ import transaction
 
 from zope.testing import doctest
 optionflags =  (doctest.ELLIPSIS |
-                doctest.NORMALIZE_WHITESPACE |
-                doctest.REPORT_ONLY_FIRST_FAILURE)
+                doctest.NORMALIZE_WHITESPACE )
 
 @onsetup
 def setup_eea_sitestructurediff():
@@ -34,7 +33,7 @@ def setup_eea_sitestructurediff():
 
 setup_eea_sitestructurediff()
 
-ptc.setupPloneSite(products=['PloneLanguageTool','LinguaPlone'], extension_profiles=['valentine.linguaflow:default', 'eea.sitestructurediff:default'])
+ptc.setupPloneSite(products=['PloneLanguageTool','LinguaPlone', 'eea.sitestructurediff'], extension_profiles=['valentine.linguaflow:default', 'eea.sitestructurediff:default'])
 
 CONTENT = { 'type' : 'Folder',
             'count' : 2,
@@ -88,19 +87,28 @@ def setUpContent(root):
 def setUp(root):
     portal = root.portal
     lt = getToolByName(portal, 'portal_languages')
-    lt.manage_setLanguageSettings('en', ['en','sv','pl'])
+    # flags because HTML is broken when running browser tests
+    lt.manage_setLanguageSettings('en', ['en','sv','pl'], displayFlags=True)
     
     setUpContent(root)
 
 def test_suite():
     from unittest import TestSuite
     suite = TestSuite()
-    from Testing.ZopeTestCase import ZopeDocFileSuite
-    suite.addTest(ZopeDocFileSuite(
+    from Testing.ZopeTestCase import FunctionalDocFileSuite
+    suite.addTest(FunctionalDocFileSuite(
                 'README.txt',
                 setUp=setUp,
                 #tearDown=tearDown,
                 package="eea.sitestructurediff",
+                test_class=ptc.FunctionalTestCase,
+                optionflags=optionflags),
+                )
+    suite.addTest(FunctionalDocFileSuite(
+                'sync.txt',
+                setUp=setUp,
+                #tearDown=tearDown,
+                package="eea.sitestructurediff.browser",
                 test_class=ptc.FunctionalTestCase,
                 optionflags=optionflags),
                 )
