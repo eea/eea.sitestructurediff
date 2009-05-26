@@ -33,6 +33,14 @@
      attribute="syncStructure"
      />
 
+  <browser:page
+     name="paste-translations"
+     for="*"
+     class=".sync.SyncMove"
+     permission="zope2.View"
+     attribute="sync"
+     />
+
   <browser:resourceDirectory
      name="sitestructurediff"
      directory="www"
