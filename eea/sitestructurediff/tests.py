@@ -13,7 +13,9 @@ import transaction
 
 from zope.testing import doctest
 optionflags =  (doctest.ELLIPSIS |
-                doctest.NORMALIZE_WHITESPACE )
+        doctest.NORMALIZE_WHITESPACE )
+
+import unittest
 
 @onsetup
 def setup_eea_sitestructurediff():
@@ -33,43 +35,46 @@ def setup_eea_sitestructurediff():
 
 setup_eea_sitestructurediff()
 
-ptc.setupPloneSite(products=['PloneLanguageTool','LinguaPlone', 'eea.sitestructurediff'], extension_profiles=['valentine.linguaflow:default', 'eea.sitestructurediff:default'])
+ptc.setupPloneSite(products=['PloneLanguageTool', 'LinguaPlone', \
+        'eea.sitestructurediff'], extension_profiles= \
+        ['valentine.linguaflow:default', 'eea.sitestructurediff:default'])
 
 CONTENT = { 'type' : 'Folder',
+        'count' : 2,
+        'languages' : ['sv','pl'],
+        'children' : [ { 'type' : 'Folder',
             'count' : 2,
-            'languages' : ['sv','pl'],
+            'languages' : ['sv'],
             'children' : [ { 'type' : 'Folder',
-                             'count' : 2,
-                             'languages' : ['sv'],
-                             'children' : [ { 'type' : 'Folder',
-                                              'count' : 2,
-                                              'languages' : ['sv','pl'],
-                                              'children' : [ { 'type' : 'Document',
-                                                               'count' : 3,
-                                                               'languages' : ['sv','pl'],},
-                                                             ] },
-                                            { 'type' : 'Document',
-                                              'count' : 1,
-                                              'languages' : ['pl'],}
-                                            ] },
-                           { 'type' : 'Document',
-                             'count' : 3,
-                             'languages' : ['sv','pl'],},
-                           ]
-            }
-    
-                                      
+                'count' : 2,
+                'languages' : ['sv','pl'],
+                'children' : [ { 'type' : 'Document',
+                    'count' : 3,
+                    'languages' : ['sv','pl'],},
+                    ] },
+                { 'type' : 'Document',
+                    'count' : 1,
+                    'languages' : ['pl'],}
+                ] },
+            { 'type' : 'Document',
+                'count' : 3,
+                'languages' : ['sv','pl'],},
+            ]
+        }
+
+
 def setUpContent(root):
     portal = root.portal
     root.setRoles(['Manager'])
     ourId = portal.invokeFactory('Folder', id='folder')
     folder = portal[ourId]
-    
+
     def createContent(context, content):
         i = content['count']
         ids = []
         while i > 0:
-            ourId = context.invokeFactory(content['type'],id='%s%s' % (content['type'], i))
+            ourId = context.invokeFactory(content['type'], id='%s%s' \
+                    % (content['type'], i))
             portal.portal_workflow.doActionFor(context[ourId], 'publish')
             for lang in content['languages']:
                 context[ourId].addTranslation(lang)
@@ -78,18 +83,16 @@ def setUpContent(root):
             i -= 1
         children = content.get('children', [])
         for child in  children:
-            for id in ids:
-                createContent(context[id], child)
-    
+            for item in ids:
+                createContent(context[item], child)
     createContent(folder, CONTENT)
     transaction.savepoint()
-    
+
 def setUp(root):
     portal = root.portal
     lt = getToolByName(portal, 'portal_languages')
     # flags because HTML is broken when running browser tests
-    lt.manage_setLanguageSettings('en', ['en','sv','pl'], displayFlags=True)
-    
+    lt.manage_setLanguageSettings('en', ['en', 'sv', 'pl'], displayFlags=True)
     setUpContent(root)
 
 def test_suite():
@@ -97,21 +100,21 @@ def test_suite():
     suite = TestSuite()
     from Testing.ZopeTestCase import FunctionalDocFileSuite
     suite.addTest(FunctionalDocFileSuite(
-                'README.txt',
-                setUp=setUp,
-                #tearDown=tearDown,
-                package="eea.sitestructurediff",
-                test_class=ptc.FunctionalTestCase,
-                optionflags=optionflags),
-                )
+        'README.txt',
+        setUp=setUp,
+        #tearDown=tearDown,
+        package="eea.sitestructurediff",
+        test_class=ptc.FunctionalTestCase,
+        optionflags=optionflags),
+        )
     suite.addTest(FunctionalDocFileSuite(
-                'sync.txt',
-                setUp=setUp,
-                #tearDown=tearDown,
-                package="eea.sitestructurediff.browser",
-                test_class=ptc.FunctionalTestCase,
-                optionflags=optionflags),
-                )
+        'sync.txt',
+        setUp=setUp,
+        #tearDown=tearDown,
+        package="eea.sitestructurediff.browser",
+        test_class=ptc.FunctionalTestCase,
+        optionflags=optionflags),
+        )
     return suite
 
 if __name__ == '__main__':

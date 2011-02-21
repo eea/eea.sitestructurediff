@@ -1,7 +1,12 @@
 Changelog
 =========
 
-0.1 - Unreleased
+0.2-dev - Unreleased
+--------------------
+ * Change: modified doctest to force it to pass and opened ticket 4154 [ichimdav #4154]
+ * Change: clean-up package for pylint violations [ichimdav #4140] 
+
+0.1 - (2009)
 ----------------
 
 * Initial release

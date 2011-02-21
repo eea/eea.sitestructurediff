@@ -14,6 +14,7 @@ class SyncDiff(BrowserView):
     implements(ISiteSyncStructure)
     
     def __init__(self, context, request):
+        super(SyncDiff, self).__init__(context, request)
         self.request = request
         self.context = context
 
@@ -39,7 +40,8 @@ class SyncDiff(BrowserView):
         path = path.split('/')
         p = 0
         while p < len(path):
-            keystring = "eea.sitestructurediff.browser.sitemap.data:(['eea.sitestructurediff'], '%s', %s)"
+            keystring = "eea.sitestructurediff.browser.sitemap.data: \
+                (['eea.sitestructurediff'], '%s', %s)"
             key = md5.new(keystring  % (currentPath, 0)).hexdigest()
             notify(InvalidateCacheEvent(key=key, raw=True))
             key = md5.new(keystring % (currentPath, 1)).hexdigest()
@@ -72,7 +74,8 @@ class SyncMove(BrowserView):
                         translations2Sync[new_parent] = {'old_parent' : parent,
                                                          'ids' : [] }
                     if new_parent != parent:
-                        translations2Sync[new_parent]['ids'].append( translation.getId() )
+                        translations2Sync[new_parent]['ids'].append(
+                                                translation.getId() )
                     
             for parent, toMove in translations2Sync.items():
                 cp = toMove['old_parent'].manage_cutObjects(ids=toMove['ids'])
