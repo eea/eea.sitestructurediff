@@ -54,10 +54,7 @@ Now we should only have one folder left that is not synchronized
 
   >>> view.request['path'] = '/plone/folder/Folder2'
   >>> [ id for id, diff in getT(view.statusdata()) if diff.startswith('missing')]
-  ['plone-folder-Folder2-Folder2-1', 'plone-folder-Folder2-Folder1-1']
-
-This is what was expected, had to remove it because of test failing
-['plone-folder-Folder2-Folder1-1']
+  ['plone-folder-Folder2-Folder1-1']
 
 And our translation should have a translated title
 
