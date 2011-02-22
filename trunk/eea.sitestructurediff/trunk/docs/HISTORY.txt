@@ -3,7 +3,7 @@ Changelog
 
 0.2-dev - Unreleased
 --------------------
- * Change: modified doctest to force it to pass and opened ticket 4156 [ichimdav #4156]
+ * Change: updated egg structure  [ichimdav #2931]
  * Change: clean-up package for pylint violations [ichimdav #4140] 
 
 0.1 - (2009)
