@@ -40,8 +40,8 @@ class SyncDiff(BrowserView):
         path = path.split('/')
         p = 0
         while p < len(path):
-            keystring = "eea.sitestructurediff.browser.sitemap.data: \
-                (['eea.sitestructurediff'], '%s', %s)"
+            keystring = "eea.sitestructurediff.browser.sitemap.data:" \
+                "(['eea.sitestructurediff'], '%s', %s)"
             key = md5.new(keystring  % (currentPath, 0)).hexdigest()
             notify(InvalidateCacheEvent(key=key, raw=True))
             key = md5.new(keystring % (currentPath, 1)).hexdigest()
