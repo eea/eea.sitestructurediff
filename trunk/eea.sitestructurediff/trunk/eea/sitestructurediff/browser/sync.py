@@ -52,8 +52,10 @@ class SyncDiff(BrowserView):
 
 class SyncMove(BrowserView):
     
-    def sync(self, syncMove=[]):
+    def sync(self, syncMove=None):
         """ """
+        if syncMove is None:
+            syncMove = []
         context = self.context
         if syncMove == []:
             syncMove = self.request.get('syncMove', [])

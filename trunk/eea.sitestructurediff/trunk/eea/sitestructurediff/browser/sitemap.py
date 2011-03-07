@@ -30,7 +30,7 @@ class SitemapView(BrowserView):
                 dependencies=['eea.sitestructurediff']))
         
     @cache(cacheKey)
-    def data(self, st=0):
+    def data(self, st=0): #pyflakes, #pylint: disable-msg = R0914
         context = self.context
 
         path = '/'.join(context.getPhysicalPath())
@@ -48,7 +48,7 @@ class SitemapView(BrowserView):
         #unused properties = getToolByName(context, 'portal_properties')
         #unused navtree_properties = getattr(properties, 'navtree_properties')
         #unused bottomLevel = navtree_properties.getProperty('bottomLevel', 0)
-        # TODO: The recursion should probably be done in python code
+        ###  The recursion should probably be done in python code
         portal_url = getToolByName(
                 context, 'portal_url').getPortalObject().absolute_url()
         try:
