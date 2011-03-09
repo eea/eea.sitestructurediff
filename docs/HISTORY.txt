@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.3-dev - (unreleased)
-----------------------
+0.3 - (2011-03-09)
+------------------
 * Change: surpressed pylint violations that can't be fixed [ichimdav #4140]
 
 0.2 - (2011-02-22)
