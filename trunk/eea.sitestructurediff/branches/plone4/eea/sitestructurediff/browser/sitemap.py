@@ -5,7 +5,7 @@ from zope.event import notify
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
-from Products.CMFPlone.browser.navtree import buildFolderTree
+from plone.app.layout.navigation.navtree import buildFolderTree
 from Products.CMFPlone.browser.navtree import SitemapNavtreeStrategy
 # from Products.CMFPlone.browser.interfaces import INavtreeStrategy
 from Products.CMFPlone.browser.interfaces import ISiteMap
