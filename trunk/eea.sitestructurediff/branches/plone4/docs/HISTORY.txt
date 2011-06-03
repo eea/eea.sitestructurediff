@@ -1,6 +1,14 @@
 Changelog
 =========
 
+4.0-dev - (unreleased)
+----------------------
+ * Feature: ported package to plone4 [ichimdav #4324]
+ * Todo:
+    -- Translations aren't syncing
+    -- Clean-up package of pylint violations
+
+
 0.4-dev - (unreleased)
 ----------------------
 * Bug fix: Added translation domain to ZCML files [voineali #4139]

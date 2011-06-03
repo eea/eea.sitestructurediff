@@ -40,7 +40,7 @@ class SitemapView(BrowserView):
         obj = context.unrestrictedTraverse(path)
         query =  {'path' : { 'query' : path,
                              'depth' : 4},
-                  'portal_type' : ['Folder', 'Topic', 'RichTopic'],
+                  'portal_type' : ['Folder', 'Topic'],
                   }
         #unused strategy = getMultiAdapter((obj, self), INavtreeStrategy)
         data = buildFolderTree(context, obj=obj, query=query,
@@ -85,7 +85,7 @@ class SitemapView(BrowserView):
                          'state': c['currentItem'] and "open" or "closed",
                          'data': {  'title' : '%s' % title,
                                     'icon' :  '%s/%s' % (portal_url,
-                                            c['icon']) ,
+                                            c['item_icon']) ,
                                     'attributes' : { 'href' : c['getURL'],
                                                      'rel' : c['portal_type'],
                                                      'title' : 'missing: %s' %

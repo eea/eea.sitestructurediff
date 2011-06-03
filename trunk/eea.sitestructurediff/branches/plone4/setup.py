@@ -27,7 +27,8 @@ setup(name='eea.sitestructurediff',
           'setuptools',
           'collective.jstree',
           'lovely.memcached',
-          'Products.EEAPloneAdmin',
+          'valentine.gtranslate',
+          #'Products.EEAPloneAdmin',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
