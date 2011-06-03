@@ -1,0 +1,20 @@
+Changelog
+=========
+
+0.4-dev - (unreleased)
+----------------------
+* Bug fix: Added translation domain to ZCML files [voineali #4139]
+
+0.3 - (2011-03-09)
+------------------
+* Change: surpressed pylint violations that can't be fixed [ichimdav #4140]
+
+0.2 - (2011-02-22)
+------------------
+ * Change: updated egg structure  [ichimdav #2931]
+ * Change: clean-up package for pylint violations [ichimdav #4140]
+
+0.1 - (2009)
+----------------
+* Initial release
+
