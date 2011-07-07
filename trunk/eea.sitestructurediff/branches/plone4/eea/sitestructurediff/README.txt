@@ -11,10 +11,10 @@ Js tree for plone
   ...     t.extend(getT(c.get('children',[])))
   ...   return t
   >>> getT(view.data())
-  [('plone-folder-Folder2-0', 'Folder2'), ('plone-folder-Folder1-0', 'Folder1')]
+  [('plone-folder-Folder2-0', 'Folder2'), ('plone-folder-Folder2-sv-0', 'missing: pl'), ('plone-folder-Folder2-pl-0', 'Folder2-pl'), ('plone-folder-Folder1-0', 'Folder1'), ('plone-folder-Folder1-sv-0', 'missing: pl'), ('plone-folder-Folder1-pl-0', 'Folder1-pl')]
 
   >>> getT(view.statusdata())
-  [('plone-folder-Folder2-1', '0 (1/3)'), ('plone-folder-Folder1-1', '0 (1/3)')]
+  [('plone-folder-Folder2-1', '0 (1/3)'), ('plone-folder-Folder2-sv-1', 'missing: pl'), ('plone-folder-Folder2-pl-1', '0 (0/3)'), ('plone-folder-Folder1-1', '0 (1/3)'), ('plone-folder-Folder1-sv-1', 'missing: pl'), ('plone-folder-Folder1-pl-1', '0 (0/3)')]
 
 In a subpath we want to see only the folders that are missing a language
 
@@ -50,15 +50,14 @@ Lets create the sync view and fix some diffs
   >>> sync = SyncDiff(self.portal.folder, self.portal.REQUEST)
   >>> sync.syncStructure()
   
-Now we should only have one folder left that is not synchronized
+Now we should only have two folders left that are not synchronized
 
   >>> view.request['path'] = '/plone/folder/Folder2'
   >>> [ id for id, diff in getT(view.statusdata()) if diff.startswith('missing')]
-  ['plone-folder-Folder2-Folder1-1']
+  ['plone-folder-Folder2-Folder2-1', 'plone-folder-Folder2-Folder1-1']
 
 And our translation should have a translated title
 
-  >>> from Products.EEAPloneAdmin.exportimport.localsite import translate
   >>> folder22.getTranslation('pl').Title()
   'Brak tytu\xc5\x82u'
   

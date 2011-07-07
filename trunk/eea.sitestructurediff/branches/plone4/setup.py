@@ -1,3 +1,5 @@
+""" Setup package
+"""
 from setuptools import setup, find_packages
 import os
 
@@ -17,7 +19,8 @@ setup(name='eea.sitestructurediff',
       keywords='eea plone jstree multilingual',
       author='Sasha Vincic, Valentine Web Systems',
       author_email='eea at valentinewebsystems dot com',
-      url='https://svn.eionet.europa.eu/projects/Zope/browser/trunk/eea.sitestructurediff',
+      url='https://svn.eionet.europa.eu/projects/Zope/browser/trunk/'
+                                                'eea.sitestructurediff',
       license='MPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['eea'],

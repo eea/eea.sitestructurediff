@@ -1,14 +1,20 @@
+""" Ea.sitestructurediff interfaces
+"""
 from zope.interface import Interface
 
 class ISiteSyncStructure(Interface):
+    """ ISiteSyncStructure
+    """
 
-    def syncStructure(): #pyflakes, #pylint: disable-msg = E0211
-
-        """ create translations that are missing """
+    def syncStructure(): 
+        """ Create translations that are missing 
+        """
 
 class ISyncMove(Interface):
+    """ ISyncMove
+    """
 
-    def sync(): #pyflakes, #pylint: disable-msg = E0211
-
-        """ move translations when canonical is moved """
+    def sync(): 
+        """ Move translations when canonical is moved 
+        """
 

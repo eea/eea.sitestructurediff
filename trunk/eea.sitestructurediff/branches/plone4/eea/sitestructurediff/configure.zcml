@@ -9,5 +9,6 @@
 
   <include package="collective.jstree" />
   <include package=".browser" />
-  
+  <include package=".upgrades" />
+
 </configure>

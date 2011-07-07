@@ -3,26 +3,41 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
- * Feature: ported package to plone4 [ichimdav #4324]
- * Todo:
-    -- Translations aren't syncing
-    -- Clean-up package of pylint violations
+
+* Feature: Added upgrade steps
+  [voineali #4392]
+
+* Feature: Plone 4.x compatible release
+  [ichimdav #4324]
+
+* TODO: See TODO.txt for remaining todo's
 
 
 0.4-dev - (unreleased)
 ----------------------
-* Bug fix: Added translation domain to ZCML files [voineali #4139]
+
+* Bug fix: Added translation domain to ZCML files
+  [voineali #4139]
+
 
 0.3 - (2011-03-09)
 ------------------
-* Change: surpressed pylint violations that can't be fixed [ichimdav #4140]
+
+* Change: surpressed pylint violations that can't be fixed
+  [ichimdav #4140]
+
 
 0.2 - (2011-02-22)
 ------------------
- * Change: updated egg structure  [ichimdav #2931]
- * Change: clean-up package for pylint violations [ichimdav #4140]
 
-0.1 - (2009)
-----------------
+* Change: updated egg structure
+  [ichimdav #2931]
+
+* Change: clean-up package for pylint violations
+  [ichimdav #4140]
+
+
+0.1 - (2009-01-01)
+------------------
+
 * Initial release
-

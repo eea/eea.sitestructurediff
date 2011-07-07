@@ -31,21 +31,35 @@ $(function () {
       ui : {
     context : [{ id : "sync",
       label : "Sync translations",
-      icon : "ok.gif",
+      icon : "",
       visible : function (NODE, TREE_OBJ) {  return true;   },
-        action  : function (NODE, TREE_OBJ) {  alert('syncing translations'); }
+      action  : function (NODE, TREE_OBJ) {
+        var path = $(NODE[0]).attr("path");
+        if ( typeof(path) == 'undefined') {
+            path = '0';
+        }
+            $.ajax({ method: "get",
+          url: "@@sync-translation",
+            data: "path="+path,
+        complete: function(){ alert('complete');},
+          success: function(){
+            Panel.jsTree.refresh(NODE); }
+          }); }
     },
       { id : "addTranslations",
     label : "Sync structure",
-    icon : "ok.gif",
+    icon : "",
     visible : function (NODE, TREE_OBJ) {  return true;   },
     action  : function (NODE, TREE_OBJ) {
-      var path = $(NODE).attr("path");
+    var path = $(NODE[0]).attr("path");
+    if ( typeof(path) == 'undefined') {
+        path = '0';
+    }
         $.ajax({ method: "get",
       url: "@@sync-structure",
         data: "path="+path,
     complete: function(){ alert('complete');},
-      success: function(html){
+      success: function(){
         Panel.jsTree.refresh(NODE); }
       }); }
     } ] }
@@ -105,13 +119,24 @@ $(function () {
       ui : {
     context : [{ id : "sync",
       label : "Sync translations",
-      icon : "ok.gif",
+      icon : "",
       visible : function (NODE, TREE_OBJ) {  return true;   },
-        action  : function (NODE, TREE_OBJ) {  alert('syncing translations'); }
+      action  : function (NODE, TREE_OBJ) {
+        var path = $(NODE[0]).attr("path");
+        if ( typeof(path) == 'undefined') {
+            path = '0';
+        }
+            $.ajax({ method: "get",
+          url: "@@sync-translation",
+            data: "path="+path,
+        complete: function(){ alert('complete');},
+          success: function(){
+            Panel.jsTree.refresh(NODE); }
+          }); }
     },
       { id : "addTranslations",
     label : "Sync structure",
-    icon : "ok.gif",
+    icon : "",
     visible : function (NODE, TREE_OBJ) {  return true;   },
       action  : function (NODE, TREE_OBJ) {  alert('adding missing translations'); }
     } ] }
@@ -130,4 +155,5 @@ $(function () {
   StatusPanel.paste  = function () { StatusPanel.jsTree.paste(); };
 
 });
+
 

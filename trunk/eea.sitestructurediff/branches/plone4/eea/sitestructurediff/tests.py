@@ -11,7 +11,7 @@ from Products.PloneTestCase.layer import onsetup
 from Products.CMFCore.utils import getToolByName
 import transaction
 
-from zope.testing import doctest
+import doctest
 optionflags =  (doctest.ELLIPSIS |
         doctest.NORMALIZE_WHITESPACE )
 
@@ -19,6 +19,8 @@ import unittest
 
 @onsetup
 def setup_eea_sitestructurediff():
+    """ Setup EEA Sitestructurediff
+    """
 
     fiveconfigure.debug_mode = True
     import Products.Five
@@ -29,13 +31,13 @@ def setup_eea_sitestructurediff():
     zcml.load_config('configure.zcml', valentine.linguaflow)
     fiveconfigure.debug_mode = False
 
-    ptc.installProduct('PloneLanguageTool')
+    #ptc.installProduct('PloneLanguageTool')
     ptc.installProduct('LinguaPlone')
 
 
 setup_eea_sitestructurediff()
 
-ptc.setupPloneSite(products=['PloneLanguageTool', 'LinguaPlone', \
+ptc.setupPloneSite(products=['LinguaPlone', \
         'eea.sitestructurediff'], extension_profiles= \
         ['valentine.linguaflow:default', 'eea.sitestructurediff:default'])
 
@@ -64,12 +66,16 @@ CONTENT = { 'type' : 'Folder',
 
 
 def setUpContent(root):
+    """ Setup test folders
+    """
     portal = root.portal
     root.setRoles(['Manager'])
     ourId = portal.invokeFactory('Folder', id='folder')
     folder = portal[ourId]
 
     def createContent(context, content):
+        """ Create predefined set of folders
+        """
         i = content['count']
         ids = []
         while i > 0:
@@ -89,6 +95,8 @@ def setUpContent(root):
     transaction.savepoint()
 
 def setUp(root):
+    """ SetUp portal for tests
+    """
     portal = root.portal
     lt = getToolByName(portal, 'portal_languages')
     # flags because HTML is broken when running browser tests
@@ -96,6 +104,8 @@ def setUp(root):
     setUpContent(root)
 
 def test_suite():
+    """ TestSuite
+    """
     from unittest import TestSuite
     suite = TestSuite()
     from Testing.ZopeTestCase import FunctionalDocFileSuite

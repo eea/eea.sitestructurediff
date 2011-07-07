@@ -34,6 +34,14 @@
      />
 
   <browser:page
+     name="sync-translation"
+     for="*"
+     class=".sync.SyncDiff"
+     permission="zope2.View"
+     attribute="syncTranslation"
+     />
+
+  <browser:page
      name="paste-translations"
      for="*"
      class=".sync.SyncMove"
