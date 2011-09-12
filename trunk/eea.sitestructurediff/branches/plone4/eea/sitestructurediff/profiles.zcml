@@ -5,7 +5,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="EEA Sitestruturediff"
+      title="EEA Sitestructurediff"
       directory="profiles/default"
       description='Extension profile for the "valentine.sitevisualization".'
       provides="Products.GenericSetup.interfaces.EXTENSION"
