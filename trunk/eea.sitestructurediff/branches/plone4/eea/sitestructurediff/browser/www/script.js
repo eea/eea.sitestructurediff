@@ -1,3 +1,4 @@
+(function($) {
 $(function () {
   Panel = {};
 
@@ -155,5 +156,4 @@ $(function () {
   StatusPanel.paste  = function () { StatusPanel.jsTree.paste(); };
 
 });
-
-
+})(jQuery);
