@@ -49,16 +49,9 @@ Lets create the sync view and fix some diffs
   >>> folder22.setTitle('Missing title')
   >>> sync = SyncDiff(self.portal.folder, self.portal.REQUEST)
   >>> sync.syncStructure()
-  
+
 Now we should only have two folders left that are not synchronized
 
   >>> view.request['path'] = '/plone/folder/Folder2'
   >>> [ id for id, diff in getT(view.statusdata()) if diff.startswith('missing')]
   ['plone-folder-Folder2-Folder2-1', 'plone-folder-Folder2-Folder1-1']
-
-And our translation should have a translated title
-
-  >>> folder22.getTranslation('pl').Title()
-  'Brak tytu\xc5\x82u'
-  
-

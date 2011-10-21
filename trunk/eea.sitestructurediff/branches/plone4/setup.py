@@ -30,7 +30,6 @@ setup(name='eea.sitestructurediff',
           'setuptools',
           'collective.jstree',
           'lovely.memcached',
-          'valentine.gtranslate',
           #'Products.EEAPloneAdmin',
           # -*- Extra requirements: -*-
       ],
