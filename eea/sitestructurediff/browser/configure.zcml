@@ -1,0 +1,58 @@
+<configure
+    xmlns:browser="http://namespaces.zope.org/browser">
+ 
+  <browser:page 
+     name="sitemap-diff"
+     template="www/sitemap.pt"
+     for="*"
+     class=".sitemap.SitemapView"
+     permission="zope2.View"
+     />
+
+  <browser:page
+     name="sitemap-data"
+     for="*"
+     class=".sitemap.SitemapView"
+     permission="zope2.View"
+     attribute="data"
+     />
+
+  <browser:page
+     name="status-data"
+     for="*"
+     class=".sitemap.SitemapView"
+     permission="zope2.View"
+     attribute="statusdata"
+     />
+
+  <browser:page
+     name="sync-structure"
+     for="*"
+     class=".sync.SyncDiff"
+     permission="zope2.View"
+     attribute="syncStructure"
+     />
+
+  <browser:page
+     name="sync-translation"
+     for="*"
+     class=".sync.SyncDiff"
+     permission="zope2.View"
+     attribute="syncTranslation"
+     />
+
+  <browser:page
+     name="paste-translations"
+     for="*"
+     class=".sync.SyncMove"
+     permission="zope2.View"
+     attribute="sync"
+     />
+
+  <browser:resourceDirectory
+     name="sitestructurediff"
+     directory="www"
+     permission="zope2.View"
+     />
+
+</configure>
