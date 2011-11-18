@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_skins" meta_type="Plone Skins Tool">
+
+    <object name="eea_sitestructurediff" meta_type="Filesystem Directory View"
+        directory="eea.sitestructurediff:skins/eea_sitestructurediff"/>
+    
+    <skin-path name="*">
+        <layer name="eea_sitestructurediff" insert-after="custom"/>
+    </skin-path>
+
+</object>
