@@ -1,8 +1,10 @@
-Changelog
+﻿Changelog
 =========
 
 4.2-dev - (unreleased)
 ----------------------
+* Bug fix: fixed markup of HISTORY.txt file
+  [ciobabog refs #5231]
 
 4.1 - (2011-11-18)
 ------------------
@@ -11,7 +13,8 @@ Changelog
 4.0 - (2011-11-18)
 ------------------
 * Bugfix: Fixed IE JS errors, fixed code that uses jQuery to avoid conflicts
-  with other JS frameworks [szabozo0 #4542]
+  with other JS frameworks
+  [szabozo0 #4542]
 * Feature: Added upgrade steps
   [voineali #4392]
 * Feature: Plone 4.x compatible release
