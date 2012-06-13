@@ -1,0 +1,35 @@
+* Todo and bugs:
+    -- Tests are working with modifications, when the other bugs are fixed 
+    maybe the tests will be able to look exactly as they did in plone2
+    
+    -- Cache doesn't seem to invalidate after the end of the sync method, right
+    now I need to restart server to see changes in @@sitemap-diff jstree
+
+    -- Node numbers in parenthesis aren't displaying properly the number of 
+    translations that an object already has ex (0/4) when when I am missing
+    only one so it should display (3/4), this behaviour is present even on
+    the old site, so a logic reevaluation will be required
+    
+    -- Right now the jstree layout is presenting arrows for all folders even
+    if those folders don't actually contain any children
+
+* Fixed issues:
+    -- Chrome sometimes saw NODE as an array containing the object
+    instead of the object directly, which resulted in no syncing
+
+    -- Image icon url for folder or topics aren't saved, you have the height 
+    and width but the image isn't there in the tree of the @@sitemap-diff 
+        -- made a function that creates the path to the image without using 
+                                        the icon from portal_types icon_expr
+    
+    -- Sync Translations isn't doing anything, the js isn't calling anything 
+    through ajax, so this feature looks incomplete
+        -- made a new method syncTranslation that is retranslating the 
+        translated objects title excepting the one that is selected from jstree
+    
+    -- When syncing content and I had three languages, 
+    synccontext.addTranslation() modified first language object if there were 
+    more than 1 language to translate into, and it always returned a dict with 
+    only two entries (it worked when I had four languages, need more testing)
+        -- I couldn't get this behaviour on future tries, I've made some changes
+        to the code, so I am declaring this issue as fixed
