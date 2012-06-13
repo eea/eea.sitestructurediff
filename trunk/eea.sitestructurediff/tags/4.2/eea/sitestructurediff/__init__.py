@@ -1,2 +1,0 @@
-""" eea.sitestructurediff init
-"""
