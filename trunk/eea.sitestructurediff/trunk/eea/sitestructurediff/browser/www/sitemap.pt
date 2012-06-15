@@ -3,7 +3,7 @@
     tal:define="portal_url context/@@plone_portal_state/portal_url">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Site visualisation</title>
+	<title i18n:translate="">Site visualisation</title>
 
 	<link rel="stylesheet" type="text/css" href="" tal:attributes="href string:$portal_url/++resource++jstree/source/tree_component.css" />
 	<script type="text/javascript" src="" tal:attributes="src string:$portal_url/++resource++jstree-lib.js"></script>
@@ -13,13 +13,17 @@
 <body>
 	<div id="container">
 		<div id="head">
-			<h1>Sitemap differences</h1>
+			<h1 i18n:translate="">Sitemap differences</h1>
 		</div>
 
 		<div id="tree-panel">
-			<div>Sitestructure</div>
-			<div class="tree">Sitestructure</div>
-   			<div id="status-panel"><p class="message">Please wait while calculating site structre differences.</p></div>
+			<div i18n:translate="">Site structure</div>
+			<div class="tree" i18n:translate="">Site structure</div>
+   			<div id="status-panel">
+   			    <p class="message" i18n:translate="please-wait-structure">
+   			        Please wait while calculating site structure differences.
+   			    </p>
+   			</div>
 		</div>
 
 	</div>

@@ -3,6 +3,8 @@
 
 4.3-dev - (unreleased)
 ----------------------
+* Bug Fix: Fixed i18n missing tags in eea.sitestructurediff 
+  [prospchr refs #5162]
 
 4.2 - (2012-06-13)
 ------------------
