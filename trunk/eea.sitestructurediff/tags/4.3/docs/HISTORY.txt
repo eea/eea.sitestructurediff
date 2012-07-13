@@ -1,0 +1,49 @@
+﻿Changelog
+=========
+
+4.3 - (2012-07-13)
+------------------
+* Bug Fix: Fixed i18n missing tags in eea.sitestructurediff 
+  [prospchr refs #5162]
+
+4.2 - (2012-06-13)
+------------------
+* Bug fix: fixed markup of HISTORY.txt file
+  [ciobabog refs #5231]
+
+4.1 - (2011-11-18)
+------------------
+* Rerelease broken egg  
+
+4.0 - (2011-11-18)
+------------------
+* Bugfix: Fixed IE JS errors, fixed code that uses jQuery to avoid conflicts
+  with other JS frameworks
+  [szabozo0 #4542]
+* Feature: Added upgrade steps
+  [voineali #4392]
+* Feature: Plone 4.x compatible release
+  [ichimdav #4324]
+* TODO: See TODO.txt for remaining todo's
+
+0.4-dev - (unreleased)
+----------------------
+* Bug fix: Added translation domain to ZCML files
+  [voineali #4139]
+
+0.3 - (2011-03-09)
+------------------
+* Change: surpressed pylint violations that can't be fixed
+  [ichimdav #4140]
+
+0.2 - (2011-02-22)
+------------------
+* Change: updated egg structure
+  [ichimdav #2931]
+* Change: clean-up package for pylint violations
+  [ichimdav #4140]
+
+0.1 - (2009-01-01)
+------------------
+* Initial release
+
