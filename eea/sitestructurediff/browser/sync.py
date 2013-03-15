@@ -3,7 +3,7 @@
 from zope.interface import implements
 from zope.event import notify
 from hashlib import md5
- 
+
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
@@ -16,7 +16,7 @@ class SyncDiff(BrowserView):
     """ SyncDiff BrowserView
     """
     implements(ISiteSyncStructure)
-    
+
     def __init__(self, context, request):
         super(SyncDiff, self).__init__(context, request)
         self.request = request
@@ -58,7 +58,7 @@ class SyncDiff(BrowserView):
             notify(InvalidateCacheEvent(key=key, raw=True))
             currentPath = '/'.join(path[:-p])
             p += 1
-            
+
     def syncTranslation(self):
         """ Sync translation
         """
@@ -96,9 +96,9 @@ class SyncDiff(BrowserView):
 class SyncMove(BrowserView):
     """ SyncMove BrowserView
     """
-    
+
     def sync(self, syncMove=None):
-        """ Sync move 
+        """ Sync move
         """
         if syncMove is None:
             syncMove = []
@@ -114,17 +114,17 @@ class SyncMove(BrowserView):
                         new_parent = context.getTranslation(lang)
                     else:
                         new_parent = context
-                        
+
                     translation = t[0]
                     parent = aq_parent(translation)
-                    
+
                     if not translations2Sync.has_key(new_parent):
                         translations2Sync[new_parent] = {'old_parent' : parent,
                                                          'ids' : [] }
                     if new_parent != parent:
                         translations2Sync[new_parent]['ids'].append(
                                                 translation.getId() )
-                    
+
             for parent, toMove in translations2Sync.items():
                 cp = toMove['old_parent'].manage_cutObjects(ids=toMove['ids'])
                 parent.manage_pasteObjects(cp)

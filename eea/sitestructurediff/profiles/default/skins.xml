@@ -3,7 +3,7 @@
 
     <object name="eea_sitestructurediff" meta_type="Filesystem Directory View"
         directory="eea.sitestructurediff:skins/eea_sitestructurediff"/>
-    
+
     <skin-path name="*">
         <layer name="eea_sitestructurediff" insert-after="custom"/>
     </skin-path>
