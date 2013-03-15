@@ -1,7 +1,7 @@
-eea.sitestructurediff provides a "paste translations" in action menu. This is 
-the paste command plus syncing translations with the canonical move. 
+eea.sitestructurediff provides a "paste translations" in action menu. This is
+the paste command plus syncing translations with the canonical move.
 
-!!! For now the translations are always moved even if the canonical is just 
+!!! For now the translations are always moved even if the canonical is just
     copied. !!!
 
 Lets make a normal paste and save the results.
@@ -17,12 +17,12 @@ Lets make a normal paste and save the results.
   >>> destFolder.objectIds()
   ['Document3', 'Document2', 'Document1', 'Folder2']
 
-When an object is moved you have the option to make the same move of 
-translations. The eea.sitestructurediff.browsedr.sync.SyncMove view 
+When an object is moved you have the option to make the same move of
+translations. The eea.sitestructurediff.browsedr.sync.SyncMove view
 provides a method to move translations of the moved canonical.
 This view expects the result of the recent call to manage_pasteObjects
 
-We verify that the translatied destination folders don't have the 
+We verify that the translatied destination folders don't have the
 expected objects.
 
   >>> destFolder.getTranslation('sv').objectIds()
@@ -37,15 +37,10 @@ Lets syncronize the move above
   >>> view = SyncMove(destFolder, folder.REQUEST)
   >>> view.sync(res)
 
-We should now have each translation in the translated destination 
+We should now have each translation in the translated destination
 folder.
 
   >>> destFolder.getTranslation('sv').objectIds()
   ['Document3', 'Document2', 'Document1', 'Folder2-sv']
   >>> destFolder.getTranslation('pl').objectIds()
   ['Document3', 'Document2', 'Document1', 'Folder2-pl']
-  
-
-
- 
-

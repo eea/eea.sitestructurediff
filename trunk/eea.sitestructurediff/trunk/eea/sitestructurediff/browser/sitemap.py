@@ -27,14 +27,14 @@ class SitemapView(BrowserView):
     """ Sitemap View
     """
     implements(ISiteMap)
-    
+
     def __init__(self, context, request):
         super(SitemapView, self).__init__(context, request)
         self.context = context
         self.request = request
         notify(InvalidateCacheEvent(raw=True, \
                 dependencies=['eea.sitestructurediff']))
-        
+
     @cache(cacheKey)
     def data(self, st=0):
         """ Translation data
@@ -48,10 +48,9 @@ class SitemapView(BrowserView):
         query =  {'path' : { 'query' : path,
                              'depth' : 4},
                   'portal_type' : ['Folder', 'Topic'],
-                  'sort_on': 'getObjPositionInParent', 
+                  'sort_on': 'getObjPositionInParent',
                   'is_default_page': False,
                   }
-        #import pdb; pdb.set_trace()
         #unused strategy = getMultiAdapter((obj, self), INavtreeStrategy)
         #strategy = getMultiAdapter((obj, self), INavtreeStrategy)
         #data = buildFolderTree(context, obj=obj, query=query,
@@ -134,7 +133,6 @@ class SitemapView(BrowserView):
         return self.data(st=1)
 
 
-
 class FullStrategy(SitemapNavtreeStrategy):
     """ Strategy class for building folder trees
     """
@@ -146,9 +144,8 @@ class FullStrategy(SitemapNavtreeStrategy):
         navtree_properties = getattr(portal_properties, 'navtree_properties')
         self.bottomLevel = navtree_properties.getProperty('bottomLevel', 0)
 
-        
+
     def nodeFilter(self, node):
         """ Node Filter
         """
         return True
-
