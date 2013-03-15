@@ -5,6 +5,8 @@ Changelog
 ----------------------
 * Bug fix: cleanup empty spaces
   [ghicaale refs #14151]
+* Bug fix: fix tests
+  [tiberich refs #14151]
 
 4.3 - (2012-07-13)
 ------------------
