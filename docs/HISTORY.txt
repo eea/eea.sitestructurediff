@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.4-dev - (unreleased)
-----------------------
+4.4 - (2013-03-15)
+------------------
 * Bug fix: cleanup empty spaces
   [ghicaale refs #14151]
 * Bug fix: fix tests
