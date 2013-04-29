@@ -8,7 +8,7 @@ from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
-from lovely.memcached.event import InvalidateCacheEvent
+from eea.cache.event import InvalidateCacheEvent
 from eea.sitestructurediff.browser.interfaces import ISiteSyncStructure
 from eea.sitestructurediff.browser.translations import translate
 

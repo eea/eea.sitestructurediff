@@ -11,7 +11,7 @@ from plone.app.layout.navigation.navtree import buildFolderTree
 from Products.CMFPlone.browser.navtree import SitemapNavtreeStrategy
 #from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from Products.CMFPlone.browser.interfaces import ISiteMap
-from lovely.memcached.event import InvalidateCacheEvent
+from eea.cache.event import InvalidateCacheEvent
 from plone.memoize.ram import cache
 
 def cacheKey(method, self, st=0):

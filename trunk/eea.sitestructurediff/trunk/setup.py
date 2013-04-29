@@ -29,7 +29,7 @@ setup(name='eea.sitestructurediff',
       install_requires=[
           'setuptools',
           'collective.jstree',
-          'lovely.memcached',
+          'eea.cache',
           #'Products.EEAPloneAdmin',
           # -*- Extra requirements: -*-
       ],
