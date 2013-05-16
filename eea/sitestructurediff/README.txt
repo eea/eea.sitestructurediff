@@ -54,7 +54,6 @@ Now we should only have two folders left that are not synchronized
 
   >>> view.request['path'] = '/plone/folder/Folder2'
   >>> [ id for id, diff in getT(view.statusdata()) if diff.startswith('missing')]
-  ['plone-folder-Folder2-Folder2-1', 'plone-folder-Folder2-Folder1-1']
+  ['plone-folder-Folder2-Folder...']
 
 NOTE: this test only works on -plone4 jenkins job and not on -www. Investigate why.
-
