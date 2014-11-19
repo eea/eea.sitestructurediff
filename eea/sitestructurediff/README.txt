@@ -31,7 +31,7 @@ We need a subscriber to listen for invalidate events since when we run tests we
 don't setup memcache but still use it's invalidation event. This subscriber will
 invalidate the default ram cache.
 
-  >>> from eea.cache.event import IInvalidateCacheEvent
+  >>> from eea.cache.interfaces import IInvalidateCacheEvent
   >>> from zope.component import adapter, provideHandler
   >>> from plone.memoize.ram import global_cache
   >>> @adapter(IInvalidateCacheEvent)
