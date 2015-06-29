@@ -12,8 +12,8 @@ from Products.CMFCore.utils import getToolByName
 import transaction
 
 import doctest
-optionflags =  (doctest.ELLIPSIS |
-        doctest.NORMALIZE_WHITESPACE )
+optionflags = (doctest.ELLIPSIS |
+        doctest.NORMALIZE_WHITESPACE)
 
 import unittest
 
@@ -41,26 +41,26 @@ ptc.setupPloneSite(products=['LinguaPlone', \
         'eea.sitestructurediff'], extension_profiles= \
         ['valentine.linguaflow:default', 'eea.sitestructurediff:default'])
 
-CONTENT = { 'type' : 'Folder',
+CONTENT = {'type' : 'Folder',
         'count' : 2,
-        'languages' : ['sv','pl'],
-        'children' : [ { 'type' : 'Folder',
+        'languages' : ['sv', 'pl'],
+        'children' : [{'type' : 'Folder',
             'count' : 2,
             'languages' : ['sv'],
-            'children' : [ { 'type' : 'Folder',
+            'children' : [{'type' : 'Folder',
                 'count' : 2,
-                'languages' : ['sv','pl'],
-                'children' : [ { 'type' : 'Document',
+                'languages' :['sv', 'pl'],
+                'children' : [{'type' : 'Document',
                     'count' : 3,
-                    'languages' : ['sv','pl'],},
-                    ] },
-                { 'type' : 'Document',
-                    'count' : 1,
-                    'languages' : ['pl'],}
-                ] },
-            { 'type' : 'Document',
-                'count' : 3,
-                'languages' : ['sv','pl'],},
+                    'languages' : ['sv', 'pl'],},
+                    ]},
+                {'type' : 'Document',
+                 'count' : 1,
+                 'languages' : ['pl'],}
+                ]},
+            {'type' : 'Document',
+             'count' : 3,
+             'languages' : ['sv', 'pl'],},
             ]
         }
 

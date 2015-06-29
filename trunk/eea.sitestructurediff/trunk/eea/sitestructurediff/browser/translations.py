@@ -17,9 +17,9 @@ def translate(msgid, target_language, output=False):
                 translation = str(msgid)
                 untranslatedMessages.get(target_language)[msgid] = translation
         translation = untranslatedMessages.get(target_language).get(msgid)
-    if type(translation) == type(''):
+    if isinstance(translation, str):
         return translation
-    if type(translation) == type(u''):
+    if isinstance(translation, unicode):
         return translation.encode('utf8')
     # what do we have here?
     return str(translation)
