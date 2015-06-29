@@ -120,10 +120,10 @@ class SyncMove(BrowserView):
 
                     if not translations2Sync.has_key(new_parent):
                         translations2Sync[new_parent] = {'old_parent' : parent,
-                                                         'ids' : [] }
+                                                         'ids' : []}
                     if new_parent != parent:
                         translations2Sync[new_parent]['ids'].append(
-                                                translation.getId() )
+                                                translation.getId())
 
             for parent, toMove in translations2Sync.items():
                 cp = toMove['old_parent'].manage_cutObjects(ids=toMove['ids'])

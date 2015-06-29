@@ -45,12 +45,12 @@ class SitemapView(BrowserView):
             path = self.request.get('path', path)
 
         obj = context.unrestrictedTraverse(path)
-        query =  {'path' : { 'query' : path,
-                             'depth' : 4},
-                  'portal_type' : ['Folder', 'Topic'],
-                  'sort_on': 'getObjPositionInParent',
-                  'is_default_page': False,
-                  }
+        query = {'path' : {'query' : path,
+                           'depth' : 4},
+                 'portal_type' : ['Folder', 'Topic'],
+                 'sort_on': 'getObjPositionInParent',
+                 'is_default_page': False,
+                }
         #unused strategy = getMultiAdapter((obj, self), INavtreeStrategy)
         #strategy = getMultiAdapter((obj, self), INavtreeStrategy)
         #data = buildFolderTree(context, obj=obj, query=query,
@@ -72,7 +72,7 @@ class SitemapView(BrowserView):
         lt = getToolByName(context, 'portal_languages')
         languages = lt.getSupportedLanguages()
         if siteLangView is not None:
-            languages = [ lang for lang, _unused in siteLangView() ]
+            languages = [lang for lang, _unused in siteLangView()]
         totalLang = len(languages)
 
         def getNodes(children):
@@ -82,8 +82,8 @@ class SitemapView(BrowserView):
             tdiff = 0
             for c in children:
                 translations = c['item'].getTranslationLanguages
-                diff = [ lang for lang in languages
-                              if lang not in  translations ]
+                diff = [lang for lang in languages
+                              if lang not in  translations]
                 title = c['Title']
                 children, cdiff = getNodes(c['children'])
                 tdiff = max([tdiff, cdiff, len(diff)])
@@ -95,18 +95,18 @@ class SitemapView(BrowserView):
                     """
                     return portal_url + '/' + c['portal_type'].lower() \
                                                             + '_icon.gif'
-                node = { 'attributes': { 'id' : '%s-%s' % (
-                        c['path'].replace('/','-')[1:], st),
+                node = {'attributes': {'id' : '%s-%s' % (
+                        c['path'].replace('/', '-')[1:], st),
                                          'class' : 'state-%s' %
                                                  c['review_state'],
                                          'path' : c['path']},
                          'state': c['currentItem'] and "open" or "closed",
-                         'data': {  'title' : '%s' % title,
-                                    'icon' :  '%s' % icon_url(),
-                                    'attributes' : { 'href' : c['getURL'],
-                                                     'rel' : c['portal_type'],
-                                                     'title' : 'missing: %s' %
-                                                     ','.join(diff)},
+                         'data': {'title' : '%s' % title,
+                                  'icon' :  '%s' % icon_url(),
+                                  'attributes' : {'href' : c['getURL'],
+                                                  'rel' : c['portal_type'],
+                                                  'title' : 'missing: %s' %
+                                                  ','.join(diff)},
                                     },
                          }
 
@@ -118,12 +118,12 @@ class SitemapView(BrowserView):
                 nodes.append(node)
             return nodes, tdiff
 
-        result, _undefined  = getNodes(data['children'])
+        result, _undefined = getNodes(data['children'])
         if not result:
-            result = { 'attributes': { 'id' : 'empty'},
+            result = {'attributes': {'id' : 'empty'},
                       'state': "closed",
-                      'data': {  'title' : 'no folders or topics' },
-                      }
+                      'data': {'title' : 'no folders or topics'},
+                     }
         return result
 
 
