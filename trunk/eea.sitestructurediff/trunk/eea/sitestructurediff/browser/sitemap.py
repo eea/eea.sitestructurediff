@@ -90,11 +90,9 @@ class SitemapView(BrowserView):
                 if st == 1:
                     title = '%s (%s/%s)' % (len(diff), cdiff, totalLang)
 
-                def icon_url():
-                    """ Returns path to content icon
-                    """
-                    return portal_url + '/' + c['portal_type'].lower() \
-                                                            + '_icon.gif'
+                icon_url = (
+                    portal_url + '/' + c['portal_type'].lower() + '_icon.gif')
+
                 node = {'attributes': {'id' : '%s-%s' % (
                         c['path'].replace('/', '-')[1:], st),
                                          'class' : 'state-%s' %
@@ -102,7 +100,7 @@ class SitemapView(BrowserView):
                                          'path' : c['path']},
                          'state': c['currentItem'] and "open" or "closed",
                          'data': {'title' : '%s' % title,
-                                  'icon' :  '%s' % icon_url(),
+                                  'icon' :  '%s' % icon_url,
                                   'attributes' : {'href' : c['getURL'],
                                                   'rel' : c['portal_type'],
                                                   'title' : 'missing: %s' %
