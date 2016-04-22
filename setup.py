@@ -30,6 +30,7 @@ setup(name='eea.sitestructurediff',
           'setuptools',
           'collective.jstree',
           'eea.cache',
+          'valentine.linguaflow',
           #'Products.EEAPloneAdmin',
           # -*- Extra requirements: -*-
       ],
