@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.9.dev0 - (unreleased)
+-----------------------
+
 4.8 - (2016-05-04)
 ------------------
 * Bug fix: Added missing dependency to valentine.linguaflow
