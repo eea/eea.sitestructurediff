@@ -2,20 +2,20 @@
 """
 Doctest runner for 'valentine.linguaflow'
 """
-__docformat__ = 'restructuredtext'
-
-from Products.Five import zcml
+import doctest
+import transaction
+import unittest
+from Products.CMFCore.utils import getToolByName
 from Products.Five import fiveconfigure
+from Products.Five import zcml
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import onsetup
-from Products.CMFCore.utils import getToolByName
-import transaction
 
-import doctest
+__docformat__ = 'restructuredtext'
+
 optionflags = (doctest.ELLIPSIS |
         doctest.NORMALIZE_WHITESPACE)
 
-import unittest
 
 @onsetup
 def setup_eea_sitestructurediff():

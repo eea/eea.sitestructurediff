@@ -1,7 +1,7 @@
 """ Setup package
 """
-from setuptools import setup, find_packages
 import os
+from setuptools import setup, find_packages
 
 name = 'eea.sitestructurediff'
 path = name.split('.') + ['version.txt']
