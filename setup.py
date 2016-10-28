@@ -10,7 +10,7 @@ version = open(os.path.join(*path)).read().strip()
 setup(name='eea.sitestructurediff',
       version=version,
       description="jsTree to create multilingual structure diff",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Programming Language :: Python",
