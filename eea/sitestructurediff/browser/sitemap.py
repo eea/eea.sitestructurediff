@@ -3,16 +3,14 @@
 #from zope.component import getMultiAdapter
 from zope.interface import implements
 from zope.event import notify
-
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-
-from plone.app.layout.navigation.navtree import buildFolderTree
 from Products.CMFPlone.browser.navtree import SitemapNavtreeStrategy
-#from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from Products.CMFPlone.browser.interfaces import ISiteMap
-from eea.cache.event import InvalidateCacheEvent
 from plone.memoize.ram import cache
+from plone.app.layout.navigation.navtree import buildFolderTree
+#from plone.app.layout.navigation.interfaces import INavtreeStrategy
+from eea.cache.event import InvalidateCacheEvent
 
 def cacheKey(method, self, st=0):
     """ Cache Key

@@ -17,4 +17,3 @@ class ISyncMove(Interface):
     def sync():
         """ Move translations when canonical is moved
         """
-

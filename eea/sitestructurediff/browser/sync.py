@@ -1,8 +1,8 @@
 """ Sync logic for syncing folder translations
 """
+from hashlib import md5
 from zope.interface import implements
 from zope.event import notify
-from hashlib import md5
 
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName

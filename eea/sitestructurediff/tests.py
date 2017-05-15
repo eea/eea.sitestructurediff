@@ -3,8 +3,8 @@
 Doctest runner for 'valentine.linguaflow'
 """
 import doctest
-import transaction
 import unittest
+import transaction
 from Products.CMFCore.utils import getToolByName
 from Products.Five import fiveconfigure
 from Products.Five import zcml
