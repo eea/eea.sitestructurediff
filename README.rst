@@ -1,10 +1,8 @@
 =======================
 EEA Site Structure Diff
 =======================
-.. image:: http://ci.eionet.europa.eu/job/eea.sitestructurediff-www/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.sitestructurediff-www/lastBuild
-.. image:: http://ci.eionet.europa.eu/job/eea.sitestructurediff-plone4/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.sitestructurediff-plone4/lastBuild
+.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.sitestructurediff/job/master/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea/job/eea.sitestructurediff/job/master/display/redirect
 
 Contents
 ========
