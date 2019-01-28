@@ -1,7 +1,7 @@
 Changelog
 =========
 
-5.3.dev0 - (unreleased)
+5.3 - (2019-01-28)
 -----------------------
 * Change: updated URLs pointing to eea.europa.eu with https://
   [alecghica refs #95849]
@@ -81,7 +81,7 @@ Changelog
   [ichimdav #4324]
 * TODO: See TODO.txt for remaining todo's
 
-0.4-dev - (unreleased)
+0.4 - (2019-01-28)
 ----------------------
 * Bug fix: Added translation domain to ZCML files
   [voineali #4139]
