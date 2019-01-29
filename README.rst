@@ -1,8 +1,12 @@
 =======================
 EEA Site Structure Diff
 =======================
-.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.sitestructurediff/job/master/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea/job/eea.sitestructurediff/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.sitestructurediff/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.sitestructurediff/job/develop/display/redirect
+  :alt: develop
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.sitestructurediff/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.sitestructurediff/job/master/display/redirect
+  :alt: master
 
 Contents
 ========
@@ -34,5 +38,5 @@ Funding
 
 EEA_ - European Environment Agency (EU)
 
-.. _EEA: http://www.eea.europa.eu/
+.. _EEA: https://www.eea.europa.eu/
 
